@@ -1,4 +1,3 @@
-#pydantic DHR invoice generator
 '''Trying to use Pydantic to validate pieces of equipment read from a CSV and then generate an invoice'''
 
 import pydantic
@@ -173,7 +172,7 @@ def main() -> None:
         try:
             cost_center_index = split_location.index('CC:')
         except Exception as e:
-            if ccbox(msg=f'Check CC for MDS {copier.equipment_number}', title=' ', choices=('[O]k', '[Q]uit'), image=None, default_choice='Ok', cancel_choice='Quit'):
+            if ccbox(msg=f'Check CC for MDS {copier.equipment_number}\n{copier.location}', title=' ', choices=('[O]k', '[Q]uit'), image=None, default_choice='Ok', cancel_choice='Quit'):
                 ic(e)
                 ic(f'MDS: {copier.equipment_number}')
             else:
